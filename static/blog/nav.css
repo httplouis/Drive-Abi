@@ -1,0 +1,122 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif; 
+    background-color: #fff; 
+}
+
+header {
+    background-color: #fff; 
+    color: #000; 
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+.logo {
+    margin-left: 20px;
+    color:  #C33332; 
+    font-size: 12px; 
+}
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; 
+}
+nav ul li {
+    margin-left: 20px;
+}
+nav ul li:first-child {
+    margin-left: 0; 
+}
+nav ul li a {
+    color: #000; 
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+nav ul li a.signin {
+    background-color: #C33332; 
+    color: #fff; 
+    padding: 10px 20px;
+    border-radius: 5px; 
+    border: 2px solid #C33332; 
+    text-decoration: none; 
+}
+nav ul li a:hover {
+    background-color: #C33332; 
+    color: #fff; 
+}
+nav ul li a.home {
+    text-decoration: underline; 
+}
+.signin-box {
+    background-color: #C33332; 
+    border-radius: 10px; 
+    padding: 10px; 
+    display: inline-block; 
+    color: #C33332; 
+}
+.signin-box a {
+    color: #fff; 
+    text-decoration: none; 
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #C33332;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.nav-link {
+    text-decoration: none;
+}
+
+
+.nav-link {
+    color: #C33332; 
+    font-weight: bold; 
+    transition: color 0.3s; 
+}
+
+
+.nav-link:hover {
+    color:#5c352c; 
+}
+.footer {
+    background-color: #C33332;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    margin-top: 20px; 
+}
+#footer {
+    background-color: #C33332;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    margin-top: 20px; 
+}

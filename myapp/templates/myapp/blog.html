@@ -1,0 +1,159 @@
+{% extends 'base.html' %}
+
+{% block title %}Blog - Drive.Abi{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="relative bg-gradient-to-br from-purple-900 via-pink-800 to-red-900 text-white py-24">
+    <div class="absolute inset-0 opacity-20">
+        <div class="absolute inset-0 bg-black opacity-40"></div>
+    </div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div data-aos="fade-down">
+            <h1 class="text-5xl md:text-7xl font-bold hero-title mb-6">Drive.Abi Blog</h1>
+            <p class="text-xl md:text-2xl text-pink-100 mb-8">Expert insights, tips, and stories from the automotive world</p>
+            <div class="max-w-2xl mx-auto">
+                <div class="relative">
+                    <input type="search" placeholder="Search articles..." class="w-full px-6 py-4 pl-14 rounded-full text-gray-800 focus:outline-none focus:ring-4 focus:ring-pink-300">
+                    <i class="fas fa-search absolute left-5 top-1/2 transform -translate-y-1/2 text-gray-400 text-xl"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Featured Post -->
+<div class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-8" data-aos="fade-up">
+            <h2 class="text-3xl font-bold text-gray-800 flex items-center">
+                <i class="fas fa-fire text-red-600 mr-3"></i>Featured Post
+            </h2>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 bg-gradient-to-br from-pink-50 to-purple-50 rounded-3xl overflow-hidden shadow-2xl" data-aos="fade-up">
+            <div class="relative h-96 lg:h-auto">
+                <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=800" alt="Featured" class="w-full h-full object-cover">
+                <div class="absolute top-6 left-6">
+                    <span class="px-4 py-2 bg-gradient-to-r from-pink-600 to-purple-600 text-white rounded-full font-bold shadow-lg">
+                        <i class="fas fa-star mr-2"></i>FEATURED
+                    </span>
+                </div>
+            </div>
+            <div class="p-12 flex flex-col justify-center">
+                <div class="flex items-center gap-4 mb-4">
+                    <img src="https://i.pravatar.cc/100?img=5" alt="Author" class="w-12 h-12 rounded-full">
+                    <div>
+                        <p class="font-semibold text-gray-800">Jane Doe</p>
+                        <p class="text-sm text-gray-600">Auto Expert</p>
+                    </div>
+                </div>
+                <h3 class="text-4xl font-bold text-gray-800 mb-4">The Ultimate Guide to Buying Your First Car in 2025</h3>
+                <p class="text-lg text-gray-700 mb-6">Everything you need to know before making one of the biggest purchases of your life. From budgeting to test drives, we've got you covered.</p>
+                <div class="flex items-center gap-6 text-gray-600 mb-6">
+                    <span><i class="fas fa-calendar mr-2"></i>Jan 20, 2025</span>
+                    <span><i class="fas fa-clock mr-2"></i>12 min read</span>
+                    <span><i class="fas fa-eye mr-2"></i>2.5K views</span>
+                </div>
+                <a href="#" class="inline-flex items-center px-8 py-3 gradient-primary text-white rounded-full font-bold hover:shadow-lg transform hover:scale-105 transition-all duration-200 w-fit">
+                    Read Full Article <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Categories -->
+<div class="py-16 bg-gradient-to-br from-gray-50 to-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-center gap-4 flex-wrap mb-12" data-aos="fade-up">
+            <button class="px-6 py-3 gradient-primary text-white rounded-full font-semibold hover:shadow-lg transition">All Posts</button>
+            <button class="px-6 py-3 bg-white text-gray-700 rounded-full font-semibold hover:bg-gray-100 transition">Buying Tips</button>
+            <button class="px-6 py-3 bg-white text-gray-700 rounded-full font-semibold hover:bg-gray-100 transition">Maintenance</button>
+            <button class="px-6 py-3 bg-white text-gray-700 rounded-full font-semibold hover:bg-gray-100 transition">Reviews</button>
+            <button class="px-6 py-3 bg-white text-gray-700 rounded-full font-semibold hover:bg-gray-100 transition">Industry News</button>
+        </div>
+
+        <!-- Blog Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {% for i in "123456789" %}
+            <article class="bg-white rounded-2xl shadow-lg overflow-hidden hover-lift group" data-aos="fade-up" data-aos-delay="{{ forloop.counter|add:50 }}">
+                <div class="relative h-56 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-161884347{{ i }}-40f8afb4b4d8?w=400" alt="Blog Post" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500" onerror="this.src='https://via.placeholder.com/400x300?text=Blog+Post'">
+                    <div class="absolute top-4 right-4">
+                        <span class="px-3 py-1 bg-purple-600 text-white rounded-full text-xs font-bold">TIPS</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center gap-3 mb-4">
+                        <img src="https://i.pravatar.cc/50?img={{ i }}" alt="Author" class="w-10 h-10 rounded-full">
+                        <div>
+                            <p class="text-sm font-semibold text-gray-800">Author Name</p>
+                            <p class="text-xs text-gray-500">Jan {{ i }}, 2025</p>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 group-hover:text-red-600 transition">Essential Car Maintenance Tips for Filipino Drivers</h3>
+                    <p class="text-gray-600 mb-4 text-sm">Keep your vehicle running smoothly with these expert maintenance tips tailored for Philippine conditions.</p>
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                        <div class="flex items-center gap-4 text-sm text-gray-500">
+                            <span><i class="fas fa-eye mr-1"></i>{{ i }}50</span>
+                            <span><i class="fas fa-heart mr-1"></i>{{ i }}2</span>
+                        </div>
+                        <a href="#" class="text-red-600 font-semibold hover:text-red-700 text-sm">
+                            Read More <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+
+        <!-- Pagination -->
+        <div class="flex justify-center gap-2 mt-12" data-aos="fade-up">
+            <button class="px-4 py-2 bg-white rounded-lg font-semibold text-gray-700 hover:bg-gray-100 transition">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="px-4 py-2 gradient-primary text-white rounded-lg font-semibold">1</button>
+            <button class="px-4 py-2 bg-white rounded-lg font-semibold text-gray-700 hover:bg-gray-100 transition">2</button>
+            <button class="px-4 py-2 bg-white rounded-lg font-semibold text-gray-700 hover:bg-gray-100 transition">3</button>
+            <button class="px-4 py-2 bg-white rounded-lg font-semibold text-gray-700 hover:bg-gray-100 transition">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Newsletter -->
+<div class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8" data-aos="zoom-in">
+        <div class="bg-gradient-to-r from-purple-600 to-pink-600 rounded-3xl p-12 text-white text-center">
+            <i class="fas fa-paper-plane text-6xl mb-6"></i>
+            <h2 class="text-4xl font-bold mb-4">Get Weekly Insights</h2>
+            <p class="text-xl text-purple-100 mb-8">Subscribe to receive our best articles straight to your inbox</p>
+            <form class="max-w-md mx-auto flex gap-2">
+                <input type="email" placeholder="Your email address" class="flex-1 px-6 py-4 rounded-full text-gray-800 focus:outline-none focus:ring-4 focus:ring-white/50">
+                <button type="submit" class="px-8 py-4 bg-white text-purple-600 rounded-full font-bold hover:bg-gray-100 transform hover:scale-105 transition-all duration-200">
+                    Subscribe
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Popular Tags -->
+<div class="py-16 bg-gradient-to-br from-gray-50 to-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12" data-aos="fade-up">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4">Popular Topics</h2>
+            <p class="text-gray-600">Explore articles by popular tags</p>
+        </div>
+        <div class="flex flex-wrap justify-center gap-3" data-aos="fade-up" data-aos-delay="100">
+            {% for tag in "Electric Cars,SUV,Luxury,Safety,Maintenance,Financing,Insurance,Reviews,Technology,Trends" %}
+            <a href="#" class="px-6 py-3 bg-white text-gray-700 rounded-full font-semibold hover:bg-gradient-to-r hover:from-purple-600 hover:to-pink-600 hover:text-white transition transform hover:scale-105">
+                #{{ tag }}
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

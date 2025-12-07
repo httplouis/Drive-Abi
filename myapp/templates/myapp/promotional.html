@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drive.Abi - Best Sellers & Deals</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #fff;
+        }
+        
+        header {
+            background-color: #fff;
+            color: #000;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+        .logo {
+            margin-left: 20px;
+            color:  #C33332;
+            font-size: 12px;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin-left: 20px;
+        }
+        nav ul li:first-child {
+            margin-left: 0;
+        }
+        nav ul li a {
+            color: #000;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+        nav ul li a.signin {
+            background-color: #C33332;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: 2px solid #C33332;
+            text-decoration: none;
+        }
+        nav ul li a:hover {
+            background-color: #C33332;
+            color: #fff;
+        }
+        nav ul li a.home {
+            text-decoration: underline;
+        }
+        .signin-box {
+            background-color: #C33332;
+            border-radius: 10px;
+            padding: 10px;
+            display: inline-block;
+            color: #C33332;
+        }
+        .signin-box a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .banner {
+			text-align: center;
+			margin-top: 20px;
+			position: relative;
+			overflow: hidden;
+			display: flex;
+			justify-content: center; 
+			align-items: center; 
+		}
+
+        .banner img {
+            max-width: 900px;
+            height: auto;
+            display: none; 
+        }
+        .banner img.active {
+            display: block; 
+        }
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .prev-btn {
+            left: 10px;
+        }
+        .next-btn {
+            right: 10px;
+        }
+        .car-classification {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .car-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+            padding-bottom: 70px;
+        }
+        .car-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            width: 300px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .car-card:hover {
+            transform: translateY(-5px);
+        }
+        .car-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px 10px 0 0;
+        }
+        .car-details {
+            padding: 20px;
+        }
+        .car-details h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .car-details p {
+            margin-bottom: 10px;
+            color: #777;
+        }
+        .buy-button {
+            background-color: #C33332;
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            border: none;
+            font-size: 14px;
+            position: absolute;
+            bottom: 0px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .buy-button:hover {
+            background-color: #fff;
+            color: #C33332;
+        }
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            z-index: 1;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 5px;
+            padding: 5px 0;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #C33332;
+            color: white;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+    <div class="logo">
+        <h1>DRIVE.ABI</h1>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="/#">HOME</a></li>
+            <li><a href="/rentcar">RENT CAR</a></li>
+            <li><a href="/buycar">BUY CAR</a></li>
+            <li><a href="/news">NEWS</a></li>
+            <li><a href="/about">ABOUT</a></li>
+            <li class="dropdown">
+                <a href="#">BRANDS ▼</a>
+                <div class="dropdown-content">
+                    <a href="#" onclick="filterCarsByBrand('all')">All Brands</a>
+                    <a href="#" onclick="filterCarsByBrand('Toyota')">Toyota</a>
+                    
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <div class="signin-box">
+        <a href="/sign" class="signin">SIGN IN</a>
+    </div>
+</header>
+
+<div class="banner">
+    <div class="banner-images">
+        <img src="https://www.speedydrive.ae/cache/publication/list/3_promotions2-new.jpeg" alt="Promotional Banner" class="active">
+        <img src="https://hondaphil.com/app/default/files-module/local/images/news-inner-main-image-1650x750-race-to-great-deals-july.jpg" alt="Promotional Banner" class="next">
+        <img src="https://geelyph.com/wp-content/uploads/2021/10/Easy-Own-Deals.jpg" alt="Promotional Banner" class="next">
+    </div>
+    <button class="slider-btn prev-btn" onclick="showPreviousImage()">Previous</button>
+    <button class="slider-btn next-btn" onclick="showNextImage()">Next</button>
+</div>
+
+<div class="car-classification">
+    <h2>Best Sellers & Deals</h2>
+</div>
+
+<div class="car-list" id="car-list"></div>
+
+<div class="footer">
+    © 2024 Drive.Abi. All rights reserved.
+</div>
+
+<script>
+    
+    const cars = [
+        { brand: 'Toyota', type: 'sedan', name: 'Toyota Vios', price: '₱1,200,000', seats: '5', transmission: 'Automatic', image: 'https://content.toyota.com.ph/uploads/vehicle_features/3/005_3_1706698530424_000.png' },
+        { brand: 'Toyota', type: 'suv', name: 'Toyota Fortuner', price: '₱1,600,000', seats: '7', transmission: 'Automatic', image: 'https://content.toyota.com.ph/uploads/vehicles/29/001_29_1681379545488_000.jpg' },
+        { brand: 'Toyota', type: 'sedan', name: 'Toyota Corolla', price: '₱1,300,000', seats: '5', transmission: 'Automatic', image: 'https://www.usnews.com/object/image/0000018c-5f0b-dc6c-aded-ffbf2d960000/https-cars-dms-usnews-com-static-uploads-images-auto-custom-15294-original-2024-toyota-corolla-angular-front-1.jpg?update-time=1693333947000&size=responsive640' },
+        { brand: 'Toyota', type: 'suv', name: 'Toyota RAV4', price: '₱1,800,000', seats: '5', transmission: 'Automatic', image: 'https://www.autodeal.com.ph/custom/car-model-photo/original/2022-toyota-rav4-hev-philippines-620cce0370b1b.jpg' },
+        
+    ];
+
+    
+    function filterCarsByBrand(brand) {
+        const filteredCars = brand === 'all' ? cars : cars.filter(car => car.brand === brand);
+        displayCars(filteredCars);
+    }
+
+    
+    function displayCars(cars) {
+        const carList = document.getElementById('car-list');
+        carList.innerHTML = ''; 
+
+        cars.forEach(car => {
+            const carCard = document.createElement('div');
+            carCard.classList.add('car-card');
+
+            const carImage = document.createElement('img');
+            carImage.classList.add('car-image');
+            carImage.src = car.image;
+            carImage.alt = car.name;
+
+            const carDetails = document.createElement('div');
+            carDetails.classList.add('car-details');
+
+            const carName = document.createElement('h2');
+            carName.textContent = car.name;
+
+            const carPrice = document.createElement('p');
+            carPrice.textContent = `Price: ${car.price}`;
+
+            const carSeats = document.createElement('p');
+            carSeats.textContent = `Seats: ${car.seats}`;
+
+            const carTransmission = document.createElement('p');
+            carTransmission.textContent = `Transmission: ${car.transmission || 'N/A'}`;
+
+            carDetails.appendChild(carName);
+            carDetails.appendChild(carPrice);
+            carDetails.appendChild(carSeats);
+            carDetails.appendChild(carTransmission);
+            carCard.appendChild(carImage);
+            carCard.appendChild(carDetails);
+            carList.appendChild(carCard);
+        });
+    }
+
+    
+    filterCarsByBrand('all');
+
+    
+    const bannerImages = document.querySelectorAll('.banner-images img');
+    let currentImageIndex = 0;
+
+    function showNextImage() {
+        const totalImages = bannerImages.length;
+        const currentImage = bannerImages[currentImageIndex];
+        const nextImageIndex = (currentImageIndex + 1) % totalImages;
+        const nextImage = bannerImages[nextImageIndex];
+
+        currentImage.classList.remove('active');
+        nextImage.classList.add('active');
+
+        currentImageIndex = nextImageIndex;
+    }
+
+    function showPreviousImage() {
+        const totalImages = bannerImages.length;
+        const currentImage = bannerImages[currentImageIndex];
+        const previousImageIndex = (currentImageIndex - 1 + totalImages) % totalImages;
+        const previousImage = bannerImages[previousImageIndex];
+
+        currentImage.classList.remove('active');
+        previousImage.classList.add('active');
+
+        currentImageIndex = previousImageIndex;
+    }
+
+    
+    setInterval(showNextImage, 5000);
+</script>
+
+</script>
+</body>
+</html>

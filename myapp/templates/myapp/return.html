@@ -1,0 +1,235 @@
+{% extends 'base.html' %}
+
+{% block title %}Return Instructions - Drive.Abi{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="relative bg-gradient-to-br from-orange-900 via-red-800 to-pink-900 text-white py-24">
+    <div class="absolute inset-0">
+        <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=1200" alt="Return" class="w-full h-full object-cover opacity-20">
+    </div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div data-aos="fade-down">
+            <div class="w-24 h-24 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
+                <i class="fas fa-undo-alt text-orange-600 text-5xl"></i>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold hero-title mb-6">Return Instructions</h1>
+            <p class="text-xl md:text-2xl text-orange-100 mb-8">Easy and hassle-free vehicle return process</p>
+        </div>
+    </div>
+</div>
+
+<!-- Return Steps -->
+<div class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-4xl md:text-5xl font-bold hero-title text-gray-800 mb-4">How to Return Your Vehicle</h2>
+            <p class="text-xl text-gray-600">Follow these simple steps for a smooth return process</p>
+        </div>
+
+        <div class="space-y-8">
+            {% for step in "1,2,3,4,5,6" %}
+            <div class="bg-gradient-to-r from-orange-50 to-red-50 rounded-2xl shadow-lg p-8 hover-lift" data-aos="fade-right" data-aos-delay="{{ forloop.counter|add:100 }}">
+                <div class="flex items-start gap-6">
+                    <div class="flex-shrink-0">
+                        <div class="w-16 h-16 gradient-primary rounded-full flex items-center justify-center">
+                            <span class="text-white text-2xl font-bold">{{ step }}</span>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        {% if step == "1" %}
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3">
+                            <i class="fas fa-clock text-orange-600 mr-2"></i>Return On Time
+                        </h3>
+                        <p class="text-gray-700 mb-3">Return the vehicle at or before your scheduled return time. Late returns will incur additional charges at an hourly rate.</p>
+                        <div class="bg-yellow-100 border-l-4 border-yellow-500 p-4 rounded">
+                            <p class="text-sm text-gray-700"><strong>Note:</strong> If you need to extend your rental, contact us at least 24 hours before the scheduled return time.</p>
+                        </div>
+                        {% elif step == "2" %}
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3">
+                            <i class="fas fa-gas-pump text-orange-600 mr-2"></i>Refuel the Vehicle
+                        </h3>
+                        <p class="text-gray-700 mb-3">Return the vehicle with a full tank of fuel. We provided it to you with a full tank, and we expect the same on return.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                            <div class="bg-white p-4 rounded-lg">
+                                <p class="font-semibold text-gray-800 mb-2"><i class="fas fa-check-circle text-green-500 mr-2"></i>Correct:</p>
+                                <p class="text-sm text-gray-600">Fill up at a nearby gas station before returning</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg">
+                                <p class="font-semibold text-gray-800 mb-2"><i class="fas fa-times-circle text-red-500 mr-2"></i>Incorrect:</p>
+                                <p class="text-sm text-gray-600">Returning with less than a full tank (₱100/liter refueling fee applies)</p>
+                            </div>
+                        </div>
+                        {% elif step == "3" %}
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3">
+                            <i class="fas fa-broom text-orange-600 mr-2"></i>Clean the Interior
+                        </h3>
+                        <p class="text-gray-700 mb-3">Remove all personal belongings and trash. The vehicle should be returned in the same clean condition as when you received it.</p>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700 mt-4">
+                            <li>Remove all trash and personal items</li>
+                            <li>Vacuum or shake out floor mats if excessively dirty</li>
+                            <li>Wipe down any spills or stains</li>
+                            <li>Check under seats and in compartments for belongings</li>
+                        </ul>
+                        <div class="bg-red-100 border-l-4 border-red-500 p-4 rounded mt-4">
+                            <p class="text-sm text-gray-700"><strong>Cleaning Fee:</strong> Excessively dirty vehicles will incur a ₱1,500 cleaning fee.</p>
+                        </div>
+                        {% elif step == "4" %}
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3">
+                            <i class="fas fa-search text-orange-600 mr-2"></i>Inspect for Damage
+                        </h3>
+                        <p class="text-gray-700 mb-3">Check the vehicle for any new damage that occurred during your rental period. Report any issues immediately.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+                            <div class="bg-white p-4 rounded-lg text-center">
+                                <i class="fas fa-car-crash text-4xl text-red-500 mb-3"></i>
+                                <h4 class="font-semibold text-gray-800 mb-2">Accidents</h4>
+                                <p class="text-sm text-gray-600">Report all accidents immediately, no matter how minor</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg text-center">
+                                <i class="fas fa-paint-brush text-4xl text-blue-500 mb-3"></i>
+                                <h4 class="font-semibold text-gray-800 mb-2">Scratches/Dents</h4>
+                                <p class="text-sm text-gray-600">Document any new scratches or dents with photos</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg text-center">
+                                <i class="fas fa-tools text-4xl text-yellow-500 mb-3"></i>
+                                <h4 class="font-semibold text-gray-800 mb-2">Mechanical</h4>
+                                <p class="text-sm text-gray-600">Report any mechanical issues or warning lights</p>
+                            </div>
+                        </div>
+                        {% elif step == "5" %}
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3">
+                            <i class="fas fa-map-marked-alt text-orange-600 mr-2"></i>Return Location
+                        </h3>
+                        <p class="text-gray-700 mb-3">Return the vehicle to the agreed-upon location. We offer multiple return options:</p>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+                            <div class="bg-white p-6 rounded-lg border-2 border-orange-200">
+                                <i class="fas fa-building text-3xl text-orange-600 mb-3"></i>
+                                <h4 class="font-semibold text-gray-800 mb-2">Office Return</h4>
+                                <p class="text-sm text-gray-600 mb-3">Return to any of our office locations during business hours</p>
+                                <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-semibold">FREE</span>
+                            </div>
+                            <div class="bg-white p-6 rounded-lg border-2 border-orange-200">
+                                <i class="fas fa-home text-3xl text-orange-600 mb-3"></i>
+                                <h4 class="font-semibold text-gray-800 mb-2">Pickup Service</h4>
+                                <p class="text-sm text-gray-600 mb-3">We'll pick up the vehicle from your location</p>
+                                <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-semibold">₱500</span>
+                            </div>
+                            <div class="bg-white p-6 rounded-lg border-2 border-orange-200">
+                                <i class="fas fa-plane text-3xl text-orange-600 mb-3"></i>
+                                <h4 class="font-semibold text-gray-800 mb-2">Airport Return</h4>
+                                <p class="text-sm text-gray-600 mb-3">Drop off at designated airport locations</p>
+                                <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-semibold">₱800</span>
+                            </div>
+                        </div>
+                        {% elif step == "6" %}
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3">
+                            <i class="fas fa-clipboard-check text-orange-600 mr-2"></i>Final Inspection
+                        </h3>
+                        <p class="text-gray-700 mb-3">Our staff will conduct a final inspection of the vehicle. This typically takes 10-15 minutes.</p>
+                        <div class="bg-white p-6 rounded-lg mt-4">
+                            <h4 class="font-semibold text-gray-800 mb-4">What We Check:</h4>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                                <div class="text-center">
+                                    <i class="fas fa-oil-can text-3xl text-orange-600 mb-2"></i>
+                                    <p class="text-sm text-gray-700 font-semibold">Fuel Level</p>
+                                </div>
+                                <div class="text-center">
+                                    <i class="fas fa-tachometer-alt text-3xl text-orange-600 mb-2"></i>
+                                    <p class="text-sm text-gray-700 font-semibold">Mileage</p>
+                                </div>
+                                <div class="text-center">
+                                    <i class="fas fa-wrench text-3xl text-orange-600 mb-2"></i>
+                                    <p class="text-sm text-gray-700 font-semibold">Condition</p>
+                                </div>
+                                <div class="text-center">
+                                    <i class="fas fa-shield-alt text-3xl text-orange-600 mb-2"></i>
+                                    <p class="text-sm text-gray-700 font-semibold">Damages</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-green-100 border-l-4 border-green-500 p-4 rounded mt-4">
+                            <p class="text-sm text-gray-700"><strong>All Clear?</strong> You'll receive a confirmation email and your security deposit will be released within 3-5 business days.</p>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<!-- Important Notes -->
+<div class="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12" data-aos="fade-up">
+            <h2 class="text-4xl font-bold hero-title text-gray-800 mb-4">Important Notes</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bg-red-50 border-l-4 border-red-500 p-6 rounded-lg" data-aos="fade-right">
+                <h3 class="text-xl font-bold text-gray-800 mb-3 flex items-center">
+                    <i class="fas fa-exclamation-triangle text-red-600 mr-3"></i>
+                    Late Return Fees
+                </h3>
+                <ul class="space-y-2 text-gray-700">
+                    <li><strong>1-2 hours late:</strong> ₱500 fee</li>
+                    <li><strong>2-4 hours late:</strong> ₱1,000 fee</li>
+                    <li><strong>4+ hours late:</strong> Full day rental charge</li>
+                </ul>
+            </div>
+
+            <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 rounded-lg" data-aos="fade-left">
+                <h3 class="text-xl font-bold text-gray-800 mb-3 flex items-center">
+                    <i class="fas fa-tools text-yellow-600 mr-3"></i>
+                    Damage Charges
+                </h3>
+                <ul class="space-y-2 text-gray-700">
+                    <li><strong>Minor scratches:</strong> ₱2,000 - ₱5,000</li>
+                    <li><strong>Dents/Panels:</strong> ₱5,000 - ₱20,000</li>
+                    <li><strong>Major damage:</strong> Actual repair cost</li>
+                </ul>
+            </div>
+
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-lg" data-aos="fade-right">
+                <h3 class="text-xl font-bold text-gray-800 mb-3 flex items-center">
+                    <i class="fas fa-key text-blue-600 mr-3"></i>
+                    Lost Items
+                </h3>
+                <ul class="space-y-2 text-gray-700">
+                    <li><strong>Lost key:</strong> ₱5,000 replacement</li>
+                    <li><strong>Lost documents:</strong> ₱1,000 processing</li>
+                    <li><strong>Lost accessories:</strong> Replacement cost</li>
+                </ul>
+            </div>
+
+            <div class="bg-green-50 border-l-4 border-green-500 p-6 rounded-lg" data-aos="fade-left">
+                <h3 class="text-xl font-bold text-gray-800 mb-3 flex items-center">
+                    <i class="fas fa-gift text-green-600 mr-3"></i>
+                    Perfect Return Bonus
+                </h3>
+                <p class="text-gray-700">Return the vehicle in perfect condition and earn loyalty points towards your next rental!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Contact Support -->
+<div class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="zoom-in">
+        <div class="w-20 h-20 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center mx-auto mb-6">
+            <i class="fas fa-headset text-white text-3xl"></i>
+        </div>
+        <h2 class="text-4xl font-bold hero-title text-gray-800 mb-6">Questions About Returns?</h2>
+        <p class="text-xl text-gray-600 mb-8">Our team is available 24/7 to assist you</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="{% url 'customer' %}" class="px-8 py-4 gradient-primary text-white rounded-full font-bold text-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-200">
+                <i class="fas fa-phone mr-2"></i>Call Support: +63 912 345 6789
+            </a>
+            <a href="{% url 'customer' %}" class="px-8 py-4 border-2 border-orange-600 text-orange-600 rounded-full font-bold text-lg hover:bg-orange-600 hover:text-white hover:shadow-2xl transform hover:scale-105 transition-all duration-200">
+                <i class="fas fa-envelope mr-2"></i>Email Us
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

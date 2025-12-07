@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>m</title>
+</head>
+<body>
+    <div class="container">
+        <div class="contact-box"></div>
+            <div class=""left>
+            <div class="right">
+                <h2>add book</h2>
+                <form method="POST"> {% csrf_token %}
+                    <input type="text" class="field" placeholder="Author" name="author"> 
+                    <input type="text" class="field" placeholder="Book Title" name="title">
+                    <button type="submit" class="btn">Sign up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

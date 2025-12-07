@@ -1,0 +1,163 @@
+{% extends 'base.html' %}
+
+{% block title %}About Us - Drive.Abi{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="relative bg-gradient-to-br from-gray-900 via-red-900 to-gray-900 text-white py-32 overflow-hidden">
+    <div class="absolute inset-0">
+        <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=1200" alt="About Us" class="w-full h-full object-cover opacity-20">
+    </div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div data-aos="fade-down">
+            <h1 class="text-6xl md:text-7xl font-bold hero-title mb-6">About Us</h1>
+            <p class="text-2xl text-gray-300 max-w-3xl mx-auto">Driving Excellence Since 2020 - Your Trusted Partner in Premium Car Rental & Sales</p>
+        </div>
+    </div>
+</div>
+
+<!-- Mission & Vision -->
+<div class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div data-aos="fade-right">
+                <img src="https://images.unsplash.com/photo-1559526324-593bc073d938?w=600" alt="Our Story" class="rounded-2xl shadow-2xl">
+            </div>
+            <div data-aos="fade-left">
+                <h2 class="text-4xl md:text-5xl font-bold hero-title text-gray-800 mb-6">Our Story</h2>
+                <div class="w-24 h-1 gradient-primary mb-8"></div>
+                <p class="text-lg text-gray-700 mb-6">
+                    DRIVE.ABI is a leading car rental and sales platform dedicated to providing the best car rental and purchase experiences. We offer a wide range of vehicles to suit your needs, from economy cars to luxury SUVs.
+                </p>
+                <p class="text-lg text-gray-700 mb-6">
+                    At DRIVE.ABI, we are committed to delivering excellent customer service. Our team of dedicated professionals is here to assist you every step of the way. Whether you need assistance in choosing the perfect car or have any questions about our services, we're here to help.
+                </p>
+                <p class="text-lg text-gray-700">
+                    Thank you for choosing DRIVE.ABI. We look forward to serving you and helping you find the perfect vehicle for your needs.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Values -->
+<div class="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-4xl md:text-5xl font-bold hero-title text-gray-800 mb-4">Our Core Values</h2>
+            <p class="text-xl text-gray-600">The principles that guide everything we do</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="bg-white p-8 rounded-2xl shadow-xl text-center hover-lift" data-aos="fade-up" data-aos-delay="100">
+                <div class="w-20 h-20 gradient-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i class="fas fa-heart text-white text-3xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">Customer First</h3>
+                <p class="text-gray-600">Your satisfaction is our top priority. We go above and beyond to exceed expectations.</p>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl shadow-xl text-center hover-lift" data-aos="fade-up" data-aos-delay="200">
+                <div class="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i class="fas fa-award text-white text-3xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">Excellence</h3>
+                <p class="text-gray-600">We maintain the highest standards in vehicle quality and customer service.</p>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl shadow-xl text-center hover-lift" data-aos="fade-up" data-aos-delay="300">
+                <div class="w-20 h-20 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i class="fas fa-handshake text-white text-3xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">Integrity</h3>
+                <p class="text-gray-600">Honest, transparent dealings in every transaction. No hidden fees, no surprises.</p>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl shadow-xl text-center hover-lift" data-aos="fade-up" data-aos-delay="400">
+                <div class="w-20 h-20 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i class="fas fa-lightbulb text-white text-3xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">Innovation</h3>
+                <p class="text-gray-600">Continuously improving our services to provide the best experience.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Team Section -->
+<div class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-4xl md:text-5xl font-bold hero-title text-gray-800 mb-4">Meet Our Team</h2>
+            <p class="text-xl text-gray-600">The passionate people behind Drive.Abi</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {% for i in "1234" %}
+            <div class="group" data-aos="fade-up" data-aos-delay="{{ forloop.counter|add:100 }}">
+                <div class="relative overflow-hidden rounded-2xl mb-6">
+                    <img src="https://i.pravatar.cc/400?img={{ i }}" alt="Team Member" class="w-full h-80 object-cover transform group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition duration-300">
+                        <div class="flex gap-3">
+                            <a href="#" class="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-1">Team Member {{ i }}</h3>
+                <p class="text-red-600 font-semibold mb-2">Senior Consultant</p>
+                <p class="text-gray-600 text-sm">Passionate about delivering exceptional customer experiences.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<!-- Stats -->
+<div class="py-20 gradient-primary text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div data-aos="fade-up" data-aos-delay="100">
+                <div class="text-6xl font-bold mb-3">5+</div>
+                <div class="text-xl text-red-100">Years Experience</div>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="200">
+                <div class="text-6xl font-bold mb-3">5000+</div>
+                <div class="text-xl text-red-100">Happy Customers</div>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="300">
+                <div class="text-6xl font-bold mb-3">200+</div>
+                <div class="text-xl text-red-100">Premium Vehicles</div>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="400">
+                <div class="text-6xl font-bold mb-3">99%</div>
+                <div class="text-xl text-red-100">Satisfaction Rate</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CTA -->
+<div class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="zoom-in">
+        <h2 class="text-4xl md:text-5xl font-bold hero-title text-gray-800 mb-6">Ready to Experience the Difference?</h2>
+        <p class="text-xl text-gray-600 mb-8">Join thousands of satisfied customers who trust Drive.Abi</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="{% url 'cartest' %}" class="px-8 py-4 gradient-primary text-white rounded-full font-bold text-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-200">
+                <i class="fas fa-car mr-2"></i>Browse Our Fleet
+            </a>
+            <a href="{% url 'customer' %}" class="px-8 py-4 border-2 border-red-600 text-red-600 rounded-full font-bold text-lg hover:bg-red-600 hover:text-white hover:shadow-2xl transform hover:scale-105 transition-all duration-200">
+                <i class="fas fa-phone mr-2"></i>Contact Us
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

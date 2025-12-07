@@ -1,0 +1,173 @@
+{% extends 'base.html' %}
+
+{% block title %}News & Updates - Drive.Abi{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="relative bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 text-white py-24">
+    <div class="absolute inset-0 bg-black opacity-40"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div data-aos="fade-down">
+            <h1 class="text-5xl md:text-7xl font-bold hero-title mb-6">Drive.ABI News</h1>
+            <p class="text-xl md:text-2xl text-purple-100 mb-8">Stay updated with the latest automotive news and trends</p>
+        </div>
+    </div>
+</div>
+
+<!-- Featured News -->
+<div class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-12" data-aos="fade-up">
+            <h2 class="text-4xl font-bold hero-title text-gray-800 mb-4">Featured Stories</h2>
+            <div class="w-24 h-1 gradient-primary"></div>
+        </div>
+
+        <!-- Main Featured Article -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+            <div class="relative overflow-hidden rounded-2xl shadow-2xl group" data-aos="fade-right">
+                <img src="https://images.unsplash.com/photo-1617886903355-9354bb57751f?w=800" alt="Electric Cars" class="w-full h-96 object-cover transform group-hover:scale-110 transition duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+                    <span class="px-4 py-1 bg-red-600 rounded-full text-sm font-semibold mb-3 inline-block">TRENDING</span>
+                    <h3 class="text-3xl font-bold mb-3">The Rise of Electric Vehicles in the Philippines</h3>
+                    <p class="text-gray-200 mb-4">Discover how electric cars are transforming the automotive landscape in 2025.</p>
+                    <div class="flex items-center text-sm text-gray-300">
+                        <i class="fas fa-calendar mr-2"></i>
+                        <span>January 15, 2025</span>
+                        <span class="mx-3">•</span>
+                        <i class="fas fa-clock mr-2"></i>
+                        <span>5 min read</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-6" data-aos="fade-left">
+                <!-- Secondary Featured Article 1 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover-lift flex">
+                    <img src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=300" alt="SUV Trends" class="w-32 h-32 object-cover">
+                    <div class="p-6 flex-1">
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-semibold">INDUSTRY</span>
+                        <h4 class="text-xl font-bold text-gray-800 mt-2 mb-2">Top SUV Models for Filipino Families</h4>
+                        <p class="text-sm text-gray-600">January 12, 2025 • 4 min read</p>
+                    </div>
+                </div>
+
+                <!-- Secondary Featured Article 2 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover-lift flex">
+                    <img src="https://images.unsplash.com/photo-1614200187524-dc4b892acf16?w=300" alt="Car Safety" class="w-32 h-32 object-cover">
+                    <div class="p-6 flex-1">
+                        <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-semibold">SAFETY</span>
+                        <h4 class="text-xl font-bold text-gray-800 mt-2 mb-2">New Safety Features in Modern Cars</h4>
+                        <p class="text-sm text-gray-600">January 10, 2025 • 6 min read</p>
+                    </div>
+                </div>
+
+                <!-- Secondary Featured Article 3 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover-lift flex">
+                    <img src="https://images.unsplash.com/photo-1542362567-b07e54358753?w=300" alt="Car Maintenance" class="w-32 h-32 object-cover">
+                    <div class="p-6 flex-1">
+                        <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs font-semibold">TIPS</span>
+                        <h4 class="text-xl font-bold text-gray-800 mt-2 mb-2">Essential Car Maintenance Guide 2025</h4>
+                        <p class="text-sm text-gray-600">January 8, 2025 • 7 min read</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Latest Articles Grid -->
+<div class="py-16 bg-gradient-to-br from-gray-50 to-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-12" data-aos="fade-up">
+            <h2 class="text-4xl font-bold hero-title text-gray-800 mb-4">Latest Articles</h2>
+            <div class="w-24 h-1 gradient-primary"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {% for i in "123456789" %}
+            <article class="bg-white rounded-2xl shadow-lg overflow-hidden hover-lift" data-aos="fade-up" data-aos-delay="{{ forloop.counter|add:100 }}">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-149214453{{ i }}-ae79c964c9d7?w=400" alt="Article" class="w-full h-full object-cover transform hover:scale-110 transition duration-500" onerror="this.src='https://via.placeholder.com/400x300?text=Car+News'">
+                    <div class="absolute top-4 left-4">
+                        <span class="px-3 py-1 bg-white rounded-full text-xs font-semibold text-gray-800">NEWS</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 hover:text-red-600 transition">Latest Automotive Technology Trends in 2025</h3>
+                    <p class="text-gray-600 mb-4 text-sm">Explore the cutting-edge innovations shaping the future of the automotive industry this year.</p>
+                    <div class="flex items-center justify-between text-sm text-gray-500 mb-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-calendar mr-2"></i>
+                            <span>Jan {{ i }}, 2025</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-clock mr-2"></i>
+                            <span>5 min</span>
+                        </div>
+                    </div>
+                    <a href="#" class="inline-flex items-center text-red-600 font-semibold hover:text-red-700 transition">
+                        Read More <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+
+        <!-- Load More Button -->
+        <div class="text-center mt-12" data-aos="fade-up">
+            <button class="px-8 py-4 gradient-primary text-white rounded-full font-bold text-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-200">
+                <i class="fas fa-plus-circle mr-2"></i>Load More Articles
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Newsletter Subscription -->
+<div class="py-20 gradient-primary text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="zoom-in">
+        <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
+            <i class="fas fa-envelope text-red-600 text-3xl"></i>
+        </div>
+        <h2 class="text-4xl font-bold hero-title mb-6">Stay In The Loop</h2>
+        <p class="text-xl text-red-100 mb-8">Subscribe to our newsletter and never miss an update!</p>
+        <form class="max-w-md mx-auto">
+            <div class="flex gap-2">
+                <input type="email" placeholder="Enter your email" class="flex-1 px-6 py-4 rounded-full text-gray-800 focus:outline-none focus:ring-4 focus:ring-white/50">
+                <button type="submit" class="px-8 py-4 bg-white text-red-600 rounded-full font-bold hover:bg-gray-100 transform hover:scale-105 transition-all duration-200">
+                    Subscribe
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Categories -->
+<div class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12" data-aos="fade-up">
+            <h2 class="text-4xl font-bold hero-title text-gray-800 mb-4">Browse by Category</h2>
+            <p class="text-xl text-gray-600">Explore articles by topic</p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <a href="#" class="group bg-gradient-to-br from-red-500 to-pink-500 p-8 rounded-2xl text-white text-center hover-lift" data-aos="fade-up" data-aos-delay="100">
+                <i class="fas fa-bolt text-5xl mb-4 group-hover:scale-110 transition"></i>
+                <h3 class="text-xl font-bold">Electric Cars</h3>
+            </a>
+            <a href="#" class="group bg-gradient-to-br from-blue-500 to-indigo-500 p-8 rounded-2xl text-white text-center hover-lift" data-aos="fade-up" data-aos-delay="200">
+                <i class="fas fa-shield-alt text-5xl mb-4 group-hover:scale-110 transition"></i>
+                <h3 class="text-xl font-bold">Safety</h3>
+            </a>
+            <a href="#" class="group bg-gradient-to-br from-green-500 to-teal-500 p-8 rounded-2xl text-white text-center hover-lift" data-aos="fade-up" data-aos-delay="300">
+                <i class="fas fa-tools text-5xl mb-4 group-hover:scale-110 transition"></i>
+                <h3 class="text-xl font-bold">Maintenance</h3>
+            </a>
+            <a href="#" class="group bg-gradient-to-br from-purple-500 to-pink-500 p-8 rounded-2xl text-white text-center hover-lift" data-aos="fade-up" data-aos-delay="400">
+                <i class="fas fa-chart-line text-5xl mb-4 group-hover:scale-110 transition"></i>
+                <h3 class="text-xl font-bold">Market Trends</h3>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

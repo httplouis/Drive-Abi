@@ -1,0 +1,180 @@
+{% extends 'base.html' %}
+{% load humanize %}
+
+{% block title %}Buy a Car - Drive.Abi{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="relative bg-gradient-to-br from-green-900 via-green-800 to-teal-900 text-white py-24 overflow-hidden">
+    <div class="absolute inset-0">
+        <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=1200" alt="Buy a Car" class="w-full h-full object-cover opacity-20">
+    </div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl" data-aos="fade-right">
+            <h1 class="text-5xl md:text-7xl font-bold hero-title mb-6">Own Your Perfect Car</h1>
+            <p class="text-xl md:text-2xl text-green-100 mb-8">Quality pre-owned and brand new vehicles. Flexible financing. Trade-ins accepted.</p>
+            <div class="flex flex-wrap gap-4">
+                <div class="flex items-center bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full">
+                    <i class="fas fa-check-circle mr-2 text-green-400"></i>
+                    <span>Certified Vehicles</span>
+                </div>
+                <div class="flex items-center bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full">
+                    <i class="fas fa-check-circle mr-2 text-green-400"></i>
+                    <span>Flexible Financing</span>
+                </div>
+                <div class="flex items-center bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full">
+                    <i class="fas fa-check-circle mr-2 text-green-400"></i>
+                    <span>Warranty Included</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Why Buy From Us -->
+<div class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12" data-aos="fade-up">
+            <h2 class="text-4xl font-bold hero-title text-gray-800 mb-4">Why Buy From Drive.Abi?</h2>
+            <p class="text-xl text-gray-600">We make car ownership easy and affordable</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-gradient-to-br from-green-50 to-teal-50 p-8 rounded-2xl hover-lift" data-aos="fade-up" data-aos-delay="100">
+                <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mb-4">
+                    <i class="fas fa-certificate text-white text-2xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-3">Certified Quality</h3>
+                <p class="text-gray-600">Every vehicle undergoes rigorous 150-point inspection to ensure top quality and reliability.</p>
+            </div>
+            
+            <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-2xl hover-lift" data-aos="fade-up" data-aos-delay="200">
+                <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mb-4">
+                    <i class="fas fa-hand-holding-usd text-white text-2xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-3">Flexible Payment</h3>
+                <p class="text-gray-600">Choose from various financing options with low interest rates and flexible payment terms.</p>
+            </div>
+            
+            <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-2xl hover-lift" data-aos="fade-up" data-aos-delay="300">
+                <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mb-4">
+                    <i class="fas fa-exchange-alt text-white text-2xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-3">Trade-In Program</h3>
+                <p class="text-gray-600">Get the best value for your current vehicle with our fair trade-in evaluation process.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Cars for Sale -->
+<div class="py-16 bg-gradient-to-br from-gray-50 to-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12" data-aos="fade-up">
+            <h2 class="text-4xl md:text-5xl font-bold hero-title text-gray-800 mb-4">Cars for Sale</h2>
+            <p class="text-xl text-gray-600">Browse our inventory of premium vehicles</p>
+        </div>
+        
+        {% if all_cars %}
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {% for car in all_cars %}
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover-lift group" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|add:100 }}">
+                <div class="relative h-56 overflow-hidden">
+                    <img src="{{ car.img }}" alt="{{ car }}" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500" onerror="this.src='https://via.placeholder.com/400x300?text=No+Image'">
+                    <div class="absolute top-4 left-4 px-3 py-1 bg-green-600 rounded-full text-white font-bold text-sm shadow-lg">
+                        For Sale
+                    </div>
+                    <div class="absolute top-4 right-4 px-3 py-1 bg-white rounded-full text-gray-800 font-bold text-sm shadow-lg">
+                        {{ car.year }}
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">{{ car.brand }} {{ car.model }}</h3>
+                    <p class="text-gray-600 mb-4 text-sm line-clamp-2">{{ car.description }}</p>
+                    
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="text-3xl font-bold gradient-primary bg-clip-text text-transparent">₱{{ car.formatted_price }}</div>
+                        <div class="flex items-center text-gray-700">
+                            <i class="fas fa-users mr-2 text-green-600"></i>
+                            <span class="font-semibold">{{ car.seats }} seats</span>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-2 mb-4 text-sm">
+                        <div class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Warranty</span>
+                        </div>
+                        <div class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Financing</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-2">
+                        <a href="{% url 'car_detail' car.pk %}" class="flex-1 px-4 py-3 gradient-primary text-white rounded-lg font-semibold text-center hover:shadow-lg transform hover:scale-105 transition-all duration-200">
+                            <i class="fas fa-info-circle mr-1"></i>Details
+                        </a>
+                        <a href="{% url 'customer' %}" class="px-4 py-3 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition">
+                            <i class="fas fa-phone"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="text-center py-20">
+            <i class="fas fa-car text-gray-300 text-8xl mb-6"></i>
+            <h3 class="text-3xl font-bold text-gray-800 mb-4">No Cars Available for Sale</h3>
+            <p class="text-gray-600 mb-8">Please check back later for new inventory</p>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<!-- Financing Info -->
+<div class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-gradient-to-r from-green-600 to-teal-600 rounded-3xl p-12 text-white" data-aos="zoom-in">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-4xl font-bold hero-title mb-6">Flexible Financing Options</h2>
+                <p class="text-xl text-green-100 mb-8">Make your dream car affordable with our customized payment plans</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-white/20 backdrop-blur-sm p-6 rounded-xl">
+                        <div class="text-4xl font-bold mb-2">0%</div>
+                        <div class="text-sm">Down Payment Options</div>
+                    </div>
+                    <div class="bg-white/20 backdrop-blur-sm p-6 rounded-xl">
+                        <div class="text-4xl font-bold mb-2">5 Years</div>
+                        <div class="text-sm">Maximum Term</div>
+                    </div>
+                    <div class="bg-white/20 backdrop-blur-sm p-6 rounded-xl">
+                        <div class="text-4xl font-bold mb-2">2.9%</div>
+                        <div class="text-sm">Starting Interest Rate</div>
+                    </div>
+                </div>
+                <a href="{% url 'customer' %}" class="inline-block px-8 py-4 bg-white text-green-600 rounded-full font-bold text-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-200">
+                    <i class="fas fa-calculator mr-2"></i>Calculate Your Payment
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .line-clamp-2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    .bg-clip-text {
+        -webkit-background-clip: text;
+        background-clip: text;
+    }
+</style>
+{% endblock %}

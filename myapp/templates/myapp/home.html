@@ -1,0 +1,567 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - Drive.Abi | Premium Car Rental & Sales{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="relative bg-gradient-to-br from-gray-900 via-gray-800 to-red-900 text-white overflow-hidden">
+    <div class="absolute inset-0 bg-black opacity-40"></div>
+    <div class="absolute inset-0">
+        <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1200" alt="Car" class="w-full h-full object-cover opacity-20">
+    </div>
+    
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
+        <div class="max-w-3xl" data-aos="fade-right">
+            <h1 class="text-5xl md:text-7xl font-bold hero-title mb-6 leading-tight">
+                Your Most <span class="text-red-500">Reputable</span> Car Rental & Sales Partner
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 text-gray-300">
+                Experience luxury and comfort with our premium fleet of vehicles. Rent or buy your dream car today!
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a href="{% url 'rentcar' %}" class="px-8 py-4 gradient-primary rounded-full font-bold text-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-200 text-center">
+                    <i class="fas fa-key mr-2"></i>Rent a Car
+                </a>
+                <a href="{% url 'buycar' %}" class="px-8 py-4 bg-white text-gray-800 rounded-full font-bold text-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-200 text-center">
+                    <i class="fas fa-shopping-cart mr-2"></i>Buy a Car
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <i class="fas fa-chevron-down text-white text-2xl"></i>
+    </div>
+</div>
+
+<!-- Features Section -->
+<div class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-4xl md:text-5xl font-bold hero-title text-gray-800 mb-4">Why Choose Drive.Abi?</h2>
+            <p class="text-xl text-gray-600">Experience the best car rental and sales service in the Philippines</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="text-center p-8 bg-gray-50 rounded-2xl hover-lift" data-aos="fade-up" data-aos-delay="100">
+                <div class="w-20 h-20 gradient-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i class="fas fa-shield-alt text-white text-3xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">Trusted & Secure</h3>
+                <p class="text-gray-600">All vehicles are verified, insured, and maintained to the highest standards</p>
+            </div>
+            
+            <div class="text-center p-8 bg-gray-50 rounded-2xl hover-lift" data-aos="fade-up" data-aos-delay="200">
+                <div class="w-20 h-20 gradient-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i class="fas fa-money-bill-wave text-white text-3xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">Best Prices</h3>
+                <p class="text-gray-600">Competitive rates with flexible payment options and special discounts</p>
+            </div>
+            
+            <div class="text-center p-8 bg-gray-50 rounded-2xl hover-lift" data-aos="fade-up" data-aos-delay="300">
+                <div class="w-20 h-20 gradient-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i class="fas fa-headset text-white text-3xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">24/7 Support</h3>
+                <p class="text-gray-600">Round-the-clock customer service to assist you anytime, anywhere</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Services Section -->
+<div class="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-4xl md:text-5xl font-bold hero-title text-gray-800 mb-4">Our Services</h2>
+            <p class="text-xl text-gray-600">Everything you need for your automotive journey</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <!-- Rent a Car -->
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover-lift" data-aos="fade-right">
+                <div class="relative h-64">
+                    <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=600" alt="Rent a Car" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 gradient-overlay flex items-center justify-center">
+                        <i class="fas fa-key text-white text-6xl"></i>
+                    </div>
+                </div>
+                <div class="p-8">
+                    <h3 class="text-3xl font-bold text-gray-800 mb-4">Rent a Car</h3>
+                    <p class="text-gray-600 mb-6">Choose from our wide selection of premium vehicles for short-term or long-term rental. Perfect for business trips, vacations, or daily commutes.</p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-check text-green-500 mr-3"></i>Flexible rental periods
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-check text-green-500 mr-3"></i>Free delivery & pickup
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-check text-green-500 mr-3"></i>Insurance included
+                        </li>
+                    </ul>
+                    <a href="{% url 'rentcar' %}" class="inline-block px-6 py-3 gradient-primary text-white rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200">
+                        Explore Rentals <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Buy a Car -->
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover-lift" data-aos="fade-left">
+                <div class="relative h-64">
+                    <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600" alt="Buy a Car" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 gradient-overlay flex items-center justify-center">
+                        <i class="fas fa-shopping-cart text-white text-6xl"></i>
+                    </div>
+                </div>
+                <div class="p-8">
+                    <h3 class="text-3xl font-bold text-gray-800 mb-4">Buy a Car</h3>
+                    <p class="text-gray-600 mb-6">Find your perfect vehicle from our curated collection of new and pre-owned cars. Quality guaranteed with comprehensive inspection reports.</p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-check text-green-500 mr-3"></i>Certified vehicles
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-check text-green-500 mr-3"></i>Financing options
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-check text-green-500 mr-3"></i>Trade-in accepted
+                        </li>
+                    </ul>
+                    <a href="{% url 'buycar' %}" class="inline-block px-6 py-3 gradient-primary text-white rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200">
+                        Browse Inventory <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Stats Section -->
+<div class="py-20 gradient-primary text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div data-aos="fade-up" data-aos-delay="100">
+                <div class="text-5xl font-bold mb-2">500+</div>
+                <div class="text-red-100">Happy Customers</div>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="200">
+                <div class="text-5xl font-bold mb-2">100+</div>
+                <div class="text-red-100">Premium Cars</div>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="300">
+                <div class="text-5xl font-bold mb-2">24/7</div>
+                <div class="text-red-100">Support</div>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="400">
+                <div class="text-5xl font-bold mb-2">5★</div>
+                <div class="text-red-100">Rating</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CTA Section -->
+<div class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="zoom-in">
+        <h2 class="text-4xl md:text-5xl font-bold hero-title text-gray-800 mb-6">Ready to Get Started?</h2>
+        <p class="text-xl text-gray-600 mb-8">Join thousands of satisfied customers and experience the Drive.Abi difference today</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="{% url 'membership' %}" class="px-8 py-4 gradient-primary text-white rounded-full font-bold text-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-200">
+                <i class="fas fa-user-plus mr-2"></i>Become a Member
+            </a>
+            <a href="{% url 'cartest' %}" class="px-8 py-4 border-2 border-red-600 text-red-600 rounded-full font-bold text-lg hover:bg-red-600 hover:text-white hover:shadow-2xl transform hover:scale-105 transition-all duration-200">
+                <i class="fas fa-car mr-2"></i>Browse Cars
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+    <style>
+        .featured {
+            text-align: center;
+            padding: 50px 0;
+        }
+        .featured .seeall {
+            background-color: #C33332; 
+            border-radius: 10px; 
+            padding: 10px; 
+            display: inline-block; 
+            color: white;
+        }
+        #my-link {
+            text-decoration: none;
+        }
+        .featured h2 {
+            font-size: 50px;
+            position: absolute;
+            top: 140px;
+            left: 100px;
+            margin-bottom: 20px;
+            color: #5c352c;
+        }
+        #allservice {
+            font-size: 25px;
+            position: absolute;
+            top: 500px;
+            left: 750px;
+            margin-bottom: 20px;
+            color: #5c352c;
+        }
+
+        #reputable {
+            font-size: 50px;
+            position: absolute;
+            top: 210px;
+            left: 100px;
+            margin-bottom: 20px;
+            color: #C33332;
+        }
+        #reputable2 {
+            font-size: 50px;
+            position: absolute;
+            top: 320px;
+            left: 100px;
+            margin-bottom: 20px;
+            color: #5c352c;
+        }
+        #carb {
+            position: absolute;
+            top: 400px;
+            left: 100px;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        #rent {
+            font-size: 25px;
+            margin-bottom: 20px;
+            color: #5c352c;
+            position: absolute;
+            top: 1000px;
+            left: 320px;
+        }
+        #buycar {
+            font-size: 25px;
+            margin-bottom: 20px;
+            color: #5c352c;
+            position: absolute;
+            top: 1650px;
+            left: 320px;
+        }
+        #buy {
+            position: absolute;
+            top: 305px;
+            left: 100px;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        #fnews {
+            font-size: 25px;
+            margin-bottom: 20px;
+            color: #5c352c;
+            position: absolute;
+            top: 2300px;
+            left: 320px;
+        }
+        .marquee-container {
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            margin-top: 20px;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            animation: marquee-animation 25s linear infinite;
+        }
+
+        @keyframes marquee-animation {
+            100% { transform: translateX(0%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .car-logo {
+            width: 120px;
+            height: 110px;
+            object-fit: contain;
+            vertical-align: middle;
+            margin-right: 50px;
+        }
+
+        .car-logo {
+            width: 100px;
+            height: auto;
+            margin-right: 140px;
+        }
+        .featured-image img {
+            width: 80%;
+            max-width: 1000px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 20px;
+            margin-right: -600px;
+        }
+        #allservice {
+            font-size: 25px;
+            margin-bottom: 20px;
+            color: #5c352c;
+        }
+        .car-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .car-details {
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .car-details img {
+            max-width: 100%;
+            height: 200px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .car-details h3 {
+            margin-top: 0;
+        }
+
+        .car-details .icon {
+            margin-right: 5px;
+        }
+
+        .car-details p {
+            margin: 5px 0;
+        }
+
+        .car-details .btn {
+            background-color: #C33332;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .car-details .btn:hover {
+            background-color: #5c352c;
+        }
+
+        .icon {
+            font-size: 20px;
+            vertical-align: middle;
+        }
+
+        .icon.star::before {
+            content: '⭐';
+        }
+
+        .icon.seat::before {
+            content: '🪑';
+        }
+
+        .icon.gas::before {
+            content: '⛽';
+        }
+
+        .icon.transmission::before {
+            content: '🕹️';
+        }
+
+        .icon.money::before {
+            content: '\1F4B0';
+        }
+
+        .join-us-button {
+            background-color: #C33332;
+            border-radius: 10px;
+            padding: 10px;
+            color: white;
+            display: inline-block;
+            text-decoration: none;
+            font-size: 18px;
+            position: absolute;
+            top: 460px;
+            left: 100px;
+        }
+    </style>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/nav.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1><a href="/#" class="nav-link">DRIVE.ABI</a></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/#">HOME</a></li>
+                <li><a href="/cartest">CARS</a></li>
+                <li><a href="/rentcar">RENT CAR</a></li>
+                <li><a href="/buycar">BUY CAR</a></li>
+                <li><a href="/news">NEWS</a></li>
+                <li><a href="/about">ABOUT</a></li>
+                <li class="dropdown">
+                    <a href="#">▼</a> 
+                    <div class="dropdown-content">
+                        <a href="/blog">Blog</a>
+                        <a href="/reviews">Reviews</a>
+                        <a href="/customer">Customer service</a>
+                        <a href="/return">Return</a>
+                        <a href="/terms">Terms of Use</a>
+                        <a href="/reservation">Reservation</a>
+                        <a href="/delivery">Delivery</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="signin-box">
+            <a href="/sign" class="signin">SIGN IN</a>
+        </div>
+    </header>
+
+    <section class="featured">
+        <div class="featured-text">
+            <h2>Buy, sell & rent </h2>
+            <h2 id="reputable">reputable cars </h2>
+            <p id="buy">Buy and sell reputable cars. Renting car is easy and fast with Drive.abi.</p>
+            <h2 id="reputable2">50+  &nbsp;&nbsp;  10k+ </h2>
+            <p id="carb">Car brands &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clients</p>
+            <a href="/membership" class="join-us-button" id="my-link">Join us</a>
+        </div>
+        <div class="featured-image">
+            <img src="static/blog/red_lambo.png" alt="Car Image">
+        </div>
+    </section>
+
+    <div class="marquee-container">
+        <div class="marquee-content">
+            <img class="car-logo" src="https://i.ebayimg.com/images/g/bkwAAOSwvR5Z7oWU/s-l1200.jpg" alt="Honda">
+            <img class="car-logo" src="https://1000logos.net/wp-content/uploads/2018/02/logo-toyota.png" alt="Toyota">
+            <img class="car-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Ford_logo_flat.svg/2560px-Ford_logo_flat.svg.png" alt="Ford">
+            <img class="car-logo" src="https://car-logos.b-cdn.net/wp-content/uploads/2023/04/bmw-logo-2020-present-1024x742.webp" alt="BMW">
+            <img class="car-logo" src="https://www.logodesignlove.com/wp-content/uploads/2012/02/volvo-logo-1959-2020-01.jpg" alt="Volvo">
+            <img class="car-logo" src="https://i.ebayimg.com/images/g/bfUAAOSw88RbDbfe/s-l1600.jpg" alt="Tesla">
+            <img class="car-logo" src="https://pngimg.com/d/nissan_PNG61.png" alt="Nissan">
+            <img class="car-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Lamborghini_logo_2.svg/2560px-Lamborghini_logo_2.svg.png" alt="Nissan">
+            <img class="car-logo" src="https://e7.pngegg.com/pngimages/153/778/png-clipart-porsche-cayman-car-porsche-cayenne-porsche-emblem-logo.png">
+            <img class="car-logo" src="https://i.pinimg.com/736x/b4/b9/8c/b4b98c99f0cc09c9804016b7b5fc7bec.jpg">
+            <img class="car-logo" src="https://logolook.net/wp-content/uploads/2022/10/Volkswagen-Logo.png">
+            <img class="car-logo" src="https://upload.wikimedia.org/wikipedia/commons/1/13/Kia-logo.png">
+            <img class="car-logo" src="https://1000logos.net/wp-content/uploads/2019/12/Chevrolet-logo.png">
+            <img class="car-logo" src="https://i.pinimg.com/736x/ec/06/e0/ec06e0511b0bf47d70ac83dea71e2521.jpg">
+            <img class="car-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Mercedes-Benz_logo.svg/1024px-Mercedes-Benz_logo.svg.png">
+            <img class="car-logo" src="https://www.carlogos.org/car-logos/audi-logo-1995-download.png">
+            <img class="car-logo" src="https://www.logo-designer.co/storage/2017/12/2017-new-Hyundai-logo-design.png">
+        </div>
+    </div>
+
+    <h2 id="allservice">All services</h2>
+
+    <h2 id="rent">Rent a Car</h2><br><br><br><br><br>
+    <div class="car-container">
+        <div class="car-details">
+            <img src="https://media.ed.edmunds-media.com/mercedes-benz/amg-gt/2023/oem/2023_mercedes-benz_amg-gt_coupe_s-eq-65_fq_oem_1_1600x1067.jpg" alt="Car Image">
+            <h3>2023 Mercedes AMG GT Coupe</h3>
+            <p><span class="icon star"></span> 4.8</p>
+            <p><span class="icon seat"></span> 2 seats</p>
+            <p><span class="icon gas"></span> Gasoline</p>
+            <p><span class="icon transmission"></span> Automatic</p>
+            <p><span class="icon money"></span> $200/day</p>
+            <a href="/rentcar" class="btn">Rent Now</a>
+        </div>
+        <div class="car-details">
+            <img src="https://media.ed.edmunds-media.com/tesla/model-3/2023/oem/2023_tesla_model-3_sedan_performance_fq_oem_1_1600x1067.jpg" alt="Car Image">
+            <h3>2023 Tesla Model 3 Performance</h3>
+            <p><span class="icon star"></span> 4.7</p>
+            <p><span class="icon seat"></span> 5 seats</p>
+            <p><span class="icon gas"></span> Electric</p>
+            <p><span class="icon transmission"></span> Automatic</p>
+            <p><span class="icon money"></span> $150/day</p>
+            <a href="/rentcar" class="btn">Rent Now</a>
+        </div>
+        <div class="car-details">
+            <img src="https://media.ed.edmunds-media.com/bmw/m4/2023/oem/2023_bmw_m4_coupe_competition_fq_oem_1_1600x1067.jpg" alt="Car Image">
+            <h3>2023 BMW M4 Competition</h3>
+            <p><span class="icon star"></span> 4.6</p>
+            <p><span class="icon seat"></span> 4 seats</p>
+            <p><span class="icon gas"></span> Gasoline</p>
+            <p><span class="icon transmission"></span> Automatic</p>
+            <p><span class="icon money"></span> $180/day</p>
+            <a href="/rentcar" class="btn">Rent Now</a>
+        </div>
+    </div>
+
+    <h2 id="buycar">Buy a Car</h2>
+    <div class="car-container">
+        <div class="car-details">
+            <img src="https://media.ed.edmunds-media.com/mercedes-benz/e-class/2023/oem/2023_mercedes-benz_e-class_sedan_amg-e-63-s_fq_oem_1_1600x1067.jpg" alt="Car Image">
+            <h3>2023 Mercedes E-Class AMG E 63 S</h3>
+            <p><span class="icon star"></span> 4.8</p>
+            <p><span class="icon seat"></span> 5 seats</p>
+            <p><span class="icon gas"></span> Gasoline</p>
+            <p><span class="icon transmission"></span> Automatic</p>
+            <p><span class="icon money"></span> $80,000</p>
+            <a href="/buycar" class="btn">Buy Now</a>
+        </div>
+        <div class="car-details">
+            <img src="https://media.ed.edmunds-media.com/tesla/model-s/2023/oem/2023_tesla_model-s_sedan_plaid_fq_oem_1_1600x1067.jpg" alt="Car Image">
+            <h3>2023 Tesla Model S Plaid</h3>
+            <p><span class="icon star"></span> 4.7</p>
+            <p><span class="icon seat"></span> 5 seats</p>
+            <p><span class="icon gas"></span> Electric</p>
+            <p><span class="icon transmission"></span> Automatic</p>
+            <p><span class="icon money"></span> $90,000</p>
+            <a href="/buycar" class="btn">Buy Now</a>
+        </div>
+        <div class="car-details">
+            <img src="https://media.ed.edmunds-media.com/bmw/x5/2023/oem/2023_bmw_x5_suv_m50i_fq_oem_1_1600x1067.jpg" alt="Car Image">
+            <h3>2023 BMW X5 M50i</h3>
+            <p><span class="icon star"></span> 4.6</p>
+            <p><span class="icon seat"></span> 5 seats</p>
+            <p><span class="icon gas"></span> Gasoline</p>
+            <p><span class="icon transmission"></span> Automatic</p>
+            <p><span class="icon money"></span> $75,000</p>
+            <a href="/buycar" class="btn">Buy Now</a>
+        </div>
+    </div>
+
+    <h2 id="fnews">Latest Car News</h2>
+    <div class="car-container">
+        <div class="car-details">
+            <img src="https://media.ed.edmunds-media.com/ford/mustang/2024/oem/2024_ford_mustang_coupe_gt_fq_oem_1_1600x1067.jpg" alt="Car Image">
+            <h3>2024 Ford Mustang GT</h3>
+            <p>Ford unveils the new 2024 Mustang GT with enhanced performance and modern design.</p>
+            <a href="/news" class="btn">Read More</a>
+        </div>
+        <div class="car-details">
+            <img src="https://media.ed.edmunds-media.com/chevrolet/corvette/2024/oem/2024_chevrolet_corvette_coupe_z06_fq_oem_1_1600x1067.jpg" alt="Car Image">
+            <h3>2024 Chevrolet Corvette Z06</h3>
+            <p>Chevrolet announces the 2024 Corvette Z06 with a new V8 engine and cutting-edge technology.</p>
+            <a href="/news" class="btn">Read More</a>
+        </div>
+        <div class="car-details">
+            <img src="https://media.ed.edmunds-media.com/audi/rs7/2024/oem/2024_audi_rs7_sedan_base_fq_oem_1_1600x1067.jpg" alt="Car Image">
+            <h3>2024 Audi RS7</h3>
+            <p>Audi reveals the 2024 RS7 with upgraded performance and luxurious features.</p>
+            <a href="/news" class="btn">Read More</a>
+        </div>
+    </div>
+</body>
+</html>

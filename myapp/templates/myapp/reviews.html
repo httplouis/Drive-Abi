@@ -1,0 +1,176 @@
+{% extends 'base.html' %}
+
+{% block title %}Customer Reviews - Drive.Abi{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="relative bg-gradient-to-br from-yellow-600 via-orange-600 to-red-600 text-white py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div data-aos="fade-down">
+            <div class="flex justify-center mb-6">
+                {% for i in "12345" %}
+                <i class="fas fa-star text-yellow-300 text-4xl mx-1"></i>
+                {% endfor %}
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold hero-title mb-6">Customer Reviews</h1>
+            <p class="text-xl md:text-2xl text-orange-100 mb-8">Hear what our satisfied customers have to say</p>
+            <div class="flex justify-center gap-8 text-center">
+                <div>
+                    <div class="text-5xl font-bold">4.9</div>
+                    <div class="text-orange-100">Average Rating</div>
+                </div>
+                <div>
+                    <div class="text-5xl font-bold">5000+</div>
+                    <div class="text-orange-100">Reviews</div>
+                </div>
+                <div>
+                    <div class="text-5xl font-bold">98%</div>
+                    <div class="text-orange-100">Would Recommend</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Rating Breakdown -->
+<div class="py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl p-12" data-aos="fade-up">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Rating Distribution</h2>
+            <div class="space-y-4">
+                {% for stars, percentage in "5,92|4,6|3,1|2,0.5|1,0.5" %}
+                <div class="flex items-center gap-4">
+                    <div class="flex gap-1 w-32">
+                        {% for i in "12345" %}
+                        <i class="fas fa-star text-yellow-500"></i>
+                        {% endfor %}
+                    </div>
+                    <div class="flex-1 bg-gray-200 rounded-full h-4 overflow-hidden">
+                        <div class="gradient-primary h-full rounded-full" style="width: {{ percentage }}%"></div>
+                    </div>
+                    <div class="w-16 text-right font-bold text-gray-700">{{ percentage }}%</div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Featured Reviews -->
+<div class="py-16 bg-gradient-to-br from-gray-50 to-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12" data-aos="fade-up">
+            <h2 class="text-4xl font-bold hero-title text-gray-800 mb-4">Featured Testimonials</h2>
+            <p class="text-xl text-gray-600">Real experiences from real customers</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {% for i in "123456789" %}
+            <div class="bg-white rounded-2xl shadow-xl p-8 hover-lift" data-aos="fade-up" data-aos-delay="{{ forloop.counter|add:50 }}">
+                <div class="flex items-center gap-4 mb-6">
+                    <img src="https://i.pravatar.cc/100?img={{ i }}" alt="Customer" class="w-16 h-16 rounded-full border-4 border-yellow-400">
+                    <div>
+                        <h4 class="font-bold text-gray-800 text-lg">Customer {{ i }}</h4>
+                        <div class="flex gap-1">
+                            {% for star in "12345" %}
+                            <i class="fas fa-star text-yellow-500 text-sm"></i>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <p class="text-gray-700 mb-4 italic">"Absolutely amazing service! The car was in perfect condition and the staff was incredibly helpful. Renting from Drive.Abi made my trip hassle-free. Highly recommended!"</p>
+                <div class="flex items-center justify-between text-sm text-gray-500 pt-4 border-t border-gray-100">
+                    <span><i class="fas fa-car mr-2"></i>Toyota Camry</span>
+                    <span><i class="fas fa-calendar mr-2"></i>Jan {{ i }}, 2025</span>
+                </div>
+                <div class="flex items-center gap-2 mt-4">
+                    <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-semibold">
+                        <i class="fas fa-check-circle mr-1"></i>Verified Purchase
+                    </span>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<!-- Video Testimonials -->
+<div class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12" data-aos="fade-up">
+            <h2 class="text-4xl font-bold hero-title text-gray-800 mb-4">Video Testimonials</h2>
+            <p class="text-xl text-gray-600">See what our customers are saying on camera</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {% for i in "123" %}
+            <div class="group relative overflow-hidden rounded-2xl shadow-xl hover-lift cursor-pointer" data-aos="fade-up" data-aos-delay="{{ forloop.counter|add:100 }}">
+                <img src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=400" alt="Video" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+                <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                    <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center transform group-hover:scale-110 transition">
+                        <i class="fas fa-play text-red-600 text-2xl ml-1"></i>
+                    </div>
+                </div>
+                <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                    <h4 class="font-bold text-lg">Amazing Experience!</h4>
+                    <p class="text-sm text-gray-200">Customer Review #{{ i }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<!-- Review Form CTA -->
+<div class="py-20 gradient-primary text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="zoom-in">
+        <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
+            <i class="fas fa-pen text-red-600 text-3xl"></i>
+        </div>
+        <h2 class="text-4xl md:text-5xl font-bold hero-title mb-6">Share Your Experience</h2>
+        <p class="text-xl text-red-100 mb-8">Had a great experience with Drive.Abi? We'd love to hear from you!</p>
+        <button class="px-8 py-4 bg-white text-red-600 rounded-full font-bold text-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-200">
+            <i class="fas fa-star mr-2"></i>Write a Review
+        </button>
+    </div>
+</div>
+
+<!-- Trust Badges -->
+<div class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12" data-aos="fade-up">
+            <h2 class="text-3xl font-bold text-gray-800">Trusted & Certified</h2>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8" data-aos="fade-up" data-aos-delay="100">
+            <div class="text-center">
+                <div class="w-24 h-24 gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-award text-white text-4xl"></i>
+                </div>
+                <h4 class="font-bold text-gray-800">Best Service</h4>
+                <p class="text-sm text-gray-600">Award 2024</p>
+            </div>
+            <div class="text-center">
+                <div class="w-24 h-24 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-certificate text-white text-4xl"></i>
+                </div>
+                <h4 class="font-bold text-gray-800">Certified</h4>
+                <p class="text-sm text-gray-600">ISO 9001</p>
+            </div>
+            <div class="text-center">
+                <div class="w-24 h-24 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-shield-alt text-white text-4xl"></i>
+                </div>
+                <h4 class="font-bold text-gray-800">Secure</h4>
+                <p class="text-sm text-gray-600">100% Safe</p>
+            </div>
+            <div class="text-center">
+                <div class="w-24 h-24 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-users text-white text-4xl"></i>
+                </div>
+                <h4 class="font-bold text-gray-800">5000+</h4>
+                <p class="text-sm text-gray-600">Happy Clients</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

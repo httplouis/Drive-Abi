@@ -1,0 +1,11 @@
+{%extends "myapp/base.html"%}
+    {%block content %}
+        {% for post in posts %}
+            <h1>{{post.first}} {{post.last}}</h1>
+            <p>{{post.course}}</p>
+            <p>Birthdate on {{post.bday}}</p>
+            
+        
+        {% endfor %}
+{% endblock content %}
+    

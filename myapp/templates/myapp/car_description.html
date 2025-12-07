@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Details and Comparison</title>
+    <style>
+       
+        .home-button {
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px; 
+            color: #C33332; 
+            margin-right: 20px; 
+            position: fixed; 
+            top: 0; 
+            right: 0; 
+            z-index: 1000; 
+            padding: 10px 20px; 
+            text-decoration: none; 
+            background-color: transparent; 
+            border: none; 
+            cursor: pointer; 
+        }
+
+        .home-button:hover {
+            background-color: #f2f2f2; 
+            border-radius: 5px; 
+        }
+
+        .car-comparison {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .car-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+            margin-bottom: 20px; 
+            padding: 20px; 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative; 
+        }
+        .car-details {
+            flex: 1;
+            margin-right: 20px;
+        }
+        .car-details img {
+            width: calc(100% - 40px); 
+            height: 200px; 
+            object-fit: cover; 
+            border-radius: 10px;
+            margin-bottom: 20px;
+            margin-right: 20px; 
+            margin-left: 20px; 
+        }
+        .car-details h2 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            cursor: pointer; 
+        }
+        .car-details p {
+            margin-bottom: 10px;
+        }
+        .car-image {
+            flex: 1;
+            max-width: 300px;
+            border-radius: 10px;
+        }
+        .description {
+            display: none; 
+            position: absolute; 
+            top: calc(100% + 10px); 
+            left: 0;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+            width: calc(100% - 40px); 
+            border: 1px solid #ddd; 
+        }
+        .arrow-down {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer; 
+            font-size: 20px; 
+            color: #888; 
+        }
+        .hi-text {
+            font-size: 18px;
+            color: #888;
+        }
+        .car-description {
+            font-size: 16px;
+            color: #444;
+            margin-bottom: 10px;
+        }
+		
+	    .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+		
+		.car-classification {
+            text-align: center;
+            margin-top: 80px; 
+        }
+        .car-type-button {
+			display: block; 
+			margin: 10px auto; 
+			width: 200px; 
+			height: 40px; 
+			background-color: #C33332;
+			color: #fff;
+			padding: 10px; 
+			border-radius: 20px;
+			cursor: pointer;
+			transition: background-color 0.3s, color 0.3s;
+			border: none; 
+		}
+
+        .car-type-button:hover {
+            background-color: #fff;
+            color: #C33332;
+        }
+		
+		.car-classification {
+			text-align: center;
+			margin-top: 20px; 
+		}
+
+		.car-type-button {
+			display: inline-block; 
+			margin: 10px; 
+			width: 150px; 
+			height: 40px; 
+			background-color: #C33332;
+			color: #fff;
+			padding: 10px; 
+			border-radius: 20px;
+			cursor: pointer;
+			transition: background-color 0.3s, color 0.3s;
+			border: none; 
+		}
+
+		.car-comparison {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 20px;
+			margin-top: 50px; 
+		}
+
+		.car-card {
+			background-color: #fff;
+			border-radius: 10px;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+			margin-bottom: 20px; 
+			padding: 20px; 
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			position: relative; 
+		}
+	
+    </style>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'blog\nav.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+    <div class="logo">
+        <h1 ><a href="/#" class="nav-link">DRIVE.ABI</a></h1>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="/#">HOME</a></li>
+            <li><a href="/car_description">CARS</a></li>
+            <li><a href="/rentcar">RENT CAR</a></li>
+            <li><a href="/buycar">BUY CAR</a></li>
+            <li><a href="/news">NEWS</a></li>
+            <li><a href="/about">ABOUT</a></li>
+            <li class="dropdown">
+                <a href="#">▼</a> 
+                <div class="dropdown-content">
+                    <a href="/blog">Blog</a>
+                    <a href="/reviews">Reviews</a>
+                    <a href="/customer">Customer service</a>
+                    <a href="/return">Return</a>
+                    <a href="/terms">Terms of Use</a>
+                    <a href="/reservation">Reservation</a>
+                    <a href="/delivery">Delivery</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <div class="signin-box">
+        <a href="/sign" class="signin">SIGN IN</a>
+    </div>
+    </header>
+		
+		<div class="car-classification">
+        <h2>Car Description<h2>
+      
+        <button class="car-type-button" onclick="filterCars('sedan')">Sedan</button>
+        <button class="car-type-button" onclick="filterCars('suv')">SUV</button>
+        <button class="car-type-button" onclick="filterCars('convertible')">Convertible</button>
+        <button class="car-type-button" onclick="filterCars('sportscar')">Sports Car</button>
+        <button class="car-type-button" onclick="filterCars('van')">Van</button>
+    </div>
+    <div id="car-list"></div>
+    <div class="car-comparison">
+        <div class="car-card">
+            <div class="car-details">
+                <h2>Toyota Vios <span class="arrow-down">&#9660;</span></h2>
+                <div class="description">
+                    <p>Type: Sedan</p>
+                    <p>Price: ₱3000/day</p>
+                    <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus maximus leo eu turpis dapibus, et molestie magna ultrices. Nullam nec velit sit amet dolor semper elementum. Sedan in good condition with low mileage.</p>
+                </div>
+                <img src="https://content.toyota.com.ph/uploads/vehicle_features/3/005_3_1706698530424_000.png" alt="Toyota Vios" class="car-image">
+				<img src="https://imgcdn.zigwheels.ph/large/gallery/interior/30/1943/toyota-vios-dashboard-view-657688.jpg" alt="Toyota Vios" class="car-image">
+				<img src="https://krabigreenday.com/wp-content/uploads/slider7/vios-interior.jpg" alt="Toyota Vios" class="car-image">
+				
+				<p class="car-description">Type: Sedan</p>
+                <p class="car-description">The Toyota Vios is a compact sedan renowned for its reliability and fuel efficiency, making it an ideal choice for city driving. Its sleek design, coupled with remarkable fuel economy, appeals to environmentally conscious drivers seeking cost-effective transportation. With Toyota's reputation for quality craftsmanship, the Vios delivers dependable performance mile after mile. Versatile features and configurations cater to diverse needs, reflecting its status as a best-seller in the compact sedan segment. In essence, the Vios epitomizes practicality and excellence, setting the standard for urban mobility.</p>
+				
+            </div>
+           
+        </div>
+        
+        <div class="car-card">
+            <div class="car-details">
+                <h2>Toyota Fortuner <span class="arrow-down">&#9660;</span></h2>
+                <div class="description">
+                    <p>Type: SUV</p>	
+                    <p>Price: ₱4500/day</p>
+                    <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus maximus leo eu turpis dapibus, et molestie magna ultrices. Nullam nec velit sit amet dolor semper elementum. SUV in excellent condition suitable for long drives.</p>
+                </div>
+                <img src="https://content.toyota.com.ph/uploads/vehicles/29/001_29_1681379545488_000.jpg" alt="Toyota Fortuner" class="car-image">
+				<img src="https://imgcdn.zigwheels.ph/large/gallery/interior/30/1110/toyota-fortuner-dashboard-view-443093.jpg" alt="Toyota Fortuner" class="car-image">
+				<img src="https://carnetwork.s3.ap-southeast-1.amazonaws.com/file/ce5c7985f91d4ef7a3c8e022bbe5f9e9.jpg" alt="Toyota Fortuner" class="car-image">
+				 <p class="car-description">Type: SUV</p>
+                <p class="car-description">The Toyota Fortuner is celebrated in the Philippines for its rugged reliability and outstanding off-road performance. With its robust build, ample space, and advanced safety features, it's the go-to choice for adventurous families and thrill-seekers. Combining Toyota's renowned durability with sleek design, the Fortuner represents prestige and adventure, making it a top pick for Filipino drivers seeking reliability and versatility</p>
+            </div>
+        </div>
+		<div class="car-card">
+		<div class="car-details">
+			<h2>Toyota Corolla <span class="arrow-down">&#9660;</span></h2>
+			<div class="description">
+				<p>Type: Sedan</p>
+				<p>Price: ₱3200/day</p>
+				<p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus maximus leo eu turpis dapibus, et molestie magna ultrices. Nullam nec velit sit amet dolor semper elementum. Sedan in excellent condition suitable for daily commuting.</p>
+			</div>
+			<img src="https://www.usnews.com/object/image/0000018c-5f0b-dc6c-aded-ffbf2d960000/https-cars-dms-usnews-com-static-uploads-images-auto-custom-15294-original-2024-toyota-corolla-angular-front-1.jpg?update-time=1693333947000&size=responsive640" alt="Toyota Corolla" class="car-image">
+			<img src="https://i.ytimg.com/vi/u30IoA9kV3k/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGGUgWihLMA8=&rs=AOn4CLDIqTPCWYNBjYafm3KwwQcr8jI_RQ" alt="Toyota Corolla" class="car-image">
+			<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCidUSCiYl4p4-P8b5nszsAjs71hrFVcKH6oJROVh5ew&s" alt="Toyota Corolla" class="car-image">
+			<p class="car-description">Type: Sedan</p>
+			<p class="car-description">The Toyota Corolla is a well-rounded compact sedan known for its reliability, fuel efficiency, and comfortable ride. With a spacious interior, advanced safety features, and modern technology, the Corolla offers a comfortable and enjoyable driving experience for both short trips and long journeys. Its sleek design and practicality make it a popular choice among drivers looking for a dependable and stylish sedan.</p>
+		</div>
+	</div>
+
+	<div class="car-card">
+		<div class="car-details">
+			<h2>Toyota RAV4 <span class="arrow-down">&#9660;</span></h2>
+			<div class="description">
+				<p>Type: SUV</p>
+				<p>Price: ₱4800/day</p>
+				<p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus maximus leo eu turpis dapibus, et molestie magna ultrices. Nullam nec velit sit amet dolor semper elementum. SUV in excellent condition suitable for family trips and outdoor adventures.</p>
+			</div>
+			<img src="https://www.autodeal.com.ph/custom/car-model-photo/original/2022-toyota-rav4-hev-philippines-620cce0370b1b.jpg" alt="Toyota RAV4" class="car-image">
+			<img src="https://di-uploads-pod24.dealerinspire.com/iratoyotaofmanchester/uploads/2022/02/336524_RHV_MY22_0001_V001.jpg" alt="Toyota RAV4" class="car-image">
+			<img src="https://di-uploads-pod9.dealerinspire.com/doraltoyota/uploads/2020/03/2019-Toyota-RAV4-Interior-5-small-.jpg" alt="Toyota RAV4" class="car-image">
+			<p class="car-description">Type: SUV</p>
+			<p class="car-description">The Toyota RAV4 is a popular compact SUV known for its versatility, reliability, and off-road capabilities. With spacious seating, ample cargo space, and advanced safety features, the RAV4 is perfect for both daily commuting and weekend adventures. Its rugged yet refined design, combined with Toyota's legendary durability, makes it a top choice for drivers seeking a capable and dependable SUV.</p>
+		</div>
+	</div>
+	<div class="car-card">
+		<div class="car-details">
+			<h2>Honda Civic<span class="arrow-down">&#9660;</span></h2>
+			<div class="description">
+				<p>Type: Sedan</p>
+				<p>Price: ₱4800/day</p>
+				<p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus maximus leo eu turpis dapibus, et molestie magna ultrices. Nullam nec velit sit amet dolor semper elementum. SUV in excellent condition suitable for family trips and outdoor adventures.</p>
+			</div>
+			<img src="https://images.topgear.com.ph/topgear/images/2023/09/11/1-1694428290.jpg" alt="Toyota RAV4" class="car-image">
+			<img src="https://di-uploads-pod23.dealerinspire.com/tempehonda/uploads/2020/03/Interior-cockpit-view-of-a-2020-Honda-Civic.png" alt="Toyota RAV4" class="car-image">
+			<img src="https://dealerinspire-image-library-prod.s3.us-east-1.amazonaws.com/images/SIvX0gSLJ9vLDY9FCAD5CvWYHAsYYLYsBFcladXP.jpg" alt="Toyota RAV4" class="car-image">
+			<p class="car-description">Type: Sedan</p>
+			<p class="car-description">In the Philippines, the Honda Civic reigns supreme as the epitome of reliability, performance, and style. Its fuel-efficient engine effortlessly navigates the urban landscape, while its spacious interior provides comfort and innovation. With its sleek design and advanced technology, the Civic captures attention and ensures a safe, enjoyable drive. Loved for its enduring legacy and Honda's commitment to excellence, the Civic is more than just a car—it's a cherished companion on the roads of the Philippines.</p>
+		</div>
+	</div>
+
+
+		
+
+
+        
+    </div>
+	
+			  <div class="footer">
+        © 2024 Drive.Abi. All rights reserved.
+    </div>
+
+    <script>
+		
+        // Add event listener to each arrow-down span
+        const arrowDowns = document.querySelectorAll('.arrow-down');
+        arrowDowns.forEach(arrow => {
+            arrow.addEventListener('click', () => {
+                const description = arrow.parentElement.querySelector('.description');
+                description.style.display = description.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+    </script>
+	
+	
+</body>
+</html>

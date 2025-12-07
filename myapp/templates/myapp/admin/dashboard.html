@@ -1,0 +1,123 @@
+{% extends 'admin/base_admin.html' %}
+{% load humanize %}
+
+{% block title %}Admin Dashboard - Drive.Abi{% endblock %}
+{% block page_title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="space-y-6">
+    <!-- Stats Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
+            <div class="flex items-center">
+                <div class="w-12 h-12 gradient-primary rounded-lg flex items-center justify-center">
+                    <i class="fas fa-car text-white text-xl"></i>
+                </div>
+                <div class="ml-4">
+                    <p class="text-gray-600 text-sm font-medium">Total Cars</p>
+                    <h3 class="text-2xl font-bold text-gray-800">{{ stats.total_cars }}</h3>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
+            <div class="flex items-center">
+                <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-users text-white text-xl"></i>
+                </div>
+                <div class="ml-4">
+                    <p class="text-gray-600 text-sm font-medium">Total Memberships</p>
+                    <h3 class="text-2xl font-bold text-gray-800">{{ stats.total_memberships }}</h3>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
+            <div class="flex items-center">
+                <div class="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-user-plus text-white text-xl"></i>
+                </div>
+                <div class="ml-4">
+                    <p class="text-gray-600 text-sm font-medium">Total Users</p>
+                    <h3 class="text-2xl font-bold text-gray-800">{{ stats.total_users }}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+        <h2 class="text-xl font-bold text-gray-800 mb-4">Quick Actions</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <a href="{% url 'admin_car_manage' %}" class="flex items-center space-x-3 p-4 border border-gray-200 rounded-lg hover:border-red-500 hover:bg-red-50 transition">
+                <div class="w-10 h-10 gradient-primary rounded-lg flex items-center justify-center">
+                    <i class="fas fa-car text-white"></i>
+                </div>
+                <div>
+                    <p class="font-semibold text-gray-800">Manage Cars</p>
+                    <p class="text-sm text-gray-600">View all cars</p>
+                </div>
+            </a>
+            
+            <a href="{% url 'admin_car_create' %}" class="flex items-center space-x-3 p-4 border border-gray-200 rounded-lg hover:border-red-500 hover:bg-red-50 transition">
+                <div class="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-plus text-white"></i>
+                </div>
+                <div>
+                    <p class="font-semibold text-gray-800">Add New Car</p>
+                    <p class="text-sm text-gray-600">Create car entry</p>
+                </div>
+            </a>
+            
+            <a href="{% url 'cartest' %}" class="flex items-center space-x-3 p-4 border border-gray-200 rounded-lg hover:border-red-500 hover:bg-red-50 transition">
+                <div class="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-eye text-white"></i>
+                </div>
+                <div>
+                    <p class="font-semibold text-gray-800">View Public</p>
+                    <p class="text-sm text-gray-600">See public site</p>
+                </div>
+            </a>
+            
+            <a href="{% url 'home' %}" class="flex items-center space-x-3 p-4 border border-gray-200 rounded-lg hover:border-red-500 hover:bg-red-50 transition">
+                <div class="w-10 h-10 bg-gray-500 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-home text-white"></i>
+                </div>
+                <div>
+                    <p class="font-semibold text-gray-800">Home Page</p>
+                    <p class="text-sm text-gray-600">Go to homepage</p>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Recent Activity (Placeholder) -->
+    <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+        <h2 class="text-xl font-bold text-gray-800 mb-4">System Overview</h2>
+        <div class="space-y-3">
+            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                <div class="flex items-center space-x-3">
+                    <i class="fas fa-car text-red-600"></i>
+                    <span class="text-gray-700">Cars in inventory</span>
+                </div>
+                <span class="font-semibold text-gray-800">{{ stats.total_cars }}</span>
+            </div>
+            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                <div class="flex items-center space-x-3">
+                    <i class="fas fa-users text-green-600"></i>
+                    <span class="text-gray-700">Active memberships</span>
+                </div>
+                <span class="font-semibold text-gray-800">{{ stats.total_memberships }}</span>
+            </div>
+            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                <div class="flex items-center space-x-3">
+                    <i class="fas fa-user-plus text-blue-600"></i>
+                    <span class="text-gray-700">Registered users</span>
+                </div>
+                <span class="font-semibold text-gray-800">{{ stats.total_users }}</span>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

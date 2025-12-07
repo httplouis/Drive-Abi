@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .contact-box {
+            width: 400px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 0 auto;
+        }
+
+        .left {
+            float: left;
+            width: 100%;
+        }
+
+        .field {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #C33332;
+            cursor: pointer;
+            color: white;
+        }
+
+        #signupl {
+            text-align: center;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 20% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 300px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .warning {
+            color: red;
+            display: none;
+            margin-top: 10px;
+        }
+
+        .google-account {
+            margin-top: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        .google-account img {
+            border-radius: 50%;
+            margin-right: 10px;
+            width: 30px;
+            height: 30px;
+        }
+
+        .google-account:hover {
+            background-color: #f1f1f1;
+        }
+
+        .btn-google {
+            background-color: white;
+            color: black;
+            border: 1px solid #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-google img {
+            margin-right: 10px;
+        }
+    </style>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/nav.css' %}">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1><a href="/#" class="nav-link">DRIVE.ABI</a></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/#">HOME</a></li>
+                <li><a href="/car_description">CARS</a></li>
+                <li><a href="/rentcar">RENT CAR</a></li>
+                <li><a href="/buycar">BUY CAR</a></li>
+                <li><a href="/news">NEWS</a></li>
+                <li><a href="/about">ABOUT</a></li>
+                <li class="dropdown">
+                    <a href="#">▼</a> 
+                    <div class="dropdown-content">
+                        <a href="/blog">Blog</a>
+                        <a href="/reviews">Reviews</a>
+                        <a href="/customer">Customer service</a>
+                        <a href="/return">Return</a>
+                        <a href="/terms">Terms of Use</a>
+                        <a href="/reservation">Reservation</a>
+                        <a href="/delivery">Delivery</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="signin-box">
+            <a href="/sign" class="signin">SIGN IN</a>
+        </div>
+    </header>
+    <div class="container">
+        <div class="contact-box">
+            <div class="left">
+                <h1 id="signupl">Sign Up</h1>
+                <form id="signupForm" method="POST"> {% csrf_token %}
+                    <input type="text" class="field" placeholder="Username" name="user" required>
+                    <input type="password" id="password" class="field" placeholder="Password" name="passw" required>
+                    <input type="password" id="confirmPassword" class="field" placeholder="Confirm Password" required>
+                    <div id="warning" class="warning">Passwords do not match!</div>
+                    <button type="submit" class="btn">Sign Up</button>
+                </form>
+                <button id="googleSignInBtn" class="btn btn-google" onclick="openGoogleModal()">
+                    <img src="https://cdn-teams-slug.flaticon.com/google.jpg" alt="Google Icon" width="20">
+                    Continue with Google
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p>Coming soon!</p>
+        </div>
+    </div>
+
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeSuccessModal()">&times;</span>
+            <p>Sign up successfully!</p>
+        </div>
+    </div>
+
+    <div id="googleModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeGoogleModal()">&times;</span>
+            <h2>SIGN IN WITH GOOGLE</h2>
+            <div class="google-account">
+                <img src="https://scontent.fmnl25-1.fna.fbcdn.net/v/t39.30808-6/432299309_3653166911627941_2743001143457707381_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHhtcokgRi8Oj3PQko5Siwd__v4A20obhD_-_gDbShuEJ8Cpeu1Q6U_ZElXsGVZO6eKuo4aEqckt176fqOeiHiE&_nc_ohc=fY50fU1IH2YQ7kNvgFERe-8&_nc_ht=scontent.fmnl25-1.fna&oh=00_AYCpG3PkVjSUIvAmBEkSsvkQSpw-KDSuChTeN1kUfrdpfQ&oe=6653A560" alt="Profile Picture">
+                Jose Rosales
+            </div>
+            <div class="google-account">
+                <img src="https://images.summitmedia-digital.com/esquiremagph/images/2023/11/24/395759051_247376521402528_5649207780033730735_n.jpg" alt="Profile Picture">
+                Hev Abi
+            </div>
+            <div class="google-account">
+                <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="Profile Picture">
+                Use another account
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var modal = document.getElementById("myModal");
+        var successModal = document.getElementById("successModal");
+        var googleModal = document.getElementById("googleModal");
+
+        function openModal() {
+            modal.style.display = "block";
+        }
+
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        function closeSuccessModal() {
+            successModal.style.display = "none";
+        }
+
+        function openGoogleModal() {
+            googleModal.style.display = "block";
+        }
+
+        function closeGoogleModal() {
+            googleModal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            } else if (event.target == successModal) {
+                successModal.style.display = "none";
+            } else if (event.target == googleModal) {
+                googleModal.style.display = "none";
+            }
+        }
+
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting the traditional way
+
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('confirmPassword').value;
+            var warning = document.getElementById('warning');
+
+            if (password !== confirmPassword) {
+                warning.style.display = 'block';
+            } else {
+                warning.style.display = 'none';
+                // Simulate successful sign-up by displaying the success modal
+                successModal.style.display = 'block';
+                // Optionally, you can submit the form here if the passwords match
+                // this.submit();
+            }
+        });
+    </script>
+</body>
+</html>

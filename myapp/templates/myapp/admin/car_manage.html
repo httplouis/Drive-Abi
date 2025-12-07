@@ -1,0 +1,136 @@
+{% extends 'admin/base_admin.html' %}
+{% load humanize %}
+
+{% block title %}Car Management - Drive.Abi{% endblock %}
+{% block page_title %}Car Management{% endblock %}
+
+{% block content %}
+<div class="space-y-6">
+    <!-- Header -->
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+        <div>
+            <h2 class="text-2xl font-bold text-gray-800 mb-2">Manage Cars</h2>
+            <p class="text-gray-600">Manage your car inventory with full CRUD operations</p>
+        </div>
+        <a href="{% url 'admin_car_create' %}" class="mt-4 md:mt-0 inline-flex items-center px-6 py-3 gradient-primary text-white rounded-lg font-semibold hover:shadow-md transition">
+            <i class="fas fa-plus-circle mr-2"></i>
+            Add New Car
+        </a>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+            <div class="flex items-center">
+                <div class="w-12 h-12 gradient-primary rounded-lg flex items-center justify-center">
+                    <i class="fas fa-car text-white text-xl"></i>
+                </div>
+                <div class="ml-4">
+                    <p class="text-gray-600 text-sm font-medium">Total Cars</p>
+                    <h3 class="text-2xl font-bold text-gray-800">{{ cars.count }}</h3>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+            <div class="flex items-center">
+                <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-check-circle text-white text-xl"></i>
+                </div>
+                <div class="ml-4">
+                    <p class="text-gray-600 text-sm font-medium">Available</p>
+                    <h3 class="text-2xl font-bold text-gray-800">{{ cars.count }}</h3>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+            <div class="flex items-center">
+                <div class="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-database text-white text-xl"></i>
+                </div>
+                <div class="ml-4">
+                    <p class="text-gray-600 text-sm font-medium">Manage</p>
+                    <h3 class="text-lg font-bold text-gray-800">Full CRUD</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cars Table -->
+    <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+        <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-gray-200">
+                <thead class="gradient-primary">
+                    <tr>
+                        <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">Image</th>
+                        <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">Car Details</th>
+                        <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">Year</th>
+                        <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">Price</th>
+                        <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">Seats</th>
+                        <th class="px-6 py-4 text-right text-xs font-medium text-white uppercase tracking-wider">Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                    {% for car in cars %}
+                    <tr class="hover:bg-gray-50 transition-colors">
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <img src="{{ car.img }}" alt="{{ car }}" class="h-16 w-24 object-cover rounded-lg" onerror="this.src='https://via.placeholder.com/150x100?text=No+Image'">
+                        </td>
+                        <td class="px-6 py-4">
+                            <div class="text-sm font-semibold text-gray-900">{{ car.brand }} {{ car.model }}</div>
+                            <div class="text-sm text-gray-500">ID: {{ car.id }}</div>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <span class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
+                                {{ car.year }}
+                            </span>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <div class="text-sm font-bold text-gray-900">₱{{ car.formatted_price }}</div>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <div class="text-sm text-gray-900">{{ car.seats }} seats</div>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                            <a href="{% url 'car_detail' car.pk %}" class="text-blue-600 hover:text-blue-900 mr-3" title="View">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                            <a href="{% url 'admin_car_update' car.pk %}" class="text-yellow-600 hover:text-yellow-900 mr-3" title="Edit">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a href="{% url 'admin_car_delete' car.pk %}" class="text-red-600 hover:text-red-900" title="Delete">
+                                <i class="fas fa-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="6" class="px-6 py-12 text-center">
+                            <div class="text-gray-400">
+                                <i class="fas fa-car text-6xl mb-4"></i>
+                                <p class="text-lg font-medium">No cars available</p>
+                                <a href="{% url 'admin_car_create' %}" class="mt-4 inline-block px-6 py-2 gradient-primary text-white rounded-lg">
+                                    Add Your First Car
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="flex justify-center space-x-4">
+        <a href="{% url 'admin_dashboard' %}" class="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg font-semibold hover:bg-gray-300 transition">
+            <i class="fas fa-arrow-left mr-2"></i>Back to Dashboard
+        </a>
+        <a href="{% url 'cartest' %}" class="px-6 py-3 bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-600 transition">
+            <i class="fas fa-eye mr-2"></i>View Public Gallery
+        </a>
+    </div>
+</div>
+{% endblock %}
+
